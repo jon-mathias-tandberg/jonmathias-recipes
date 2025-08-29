@@ -7,7 +7,7 @@
 This recipe downloads the Microsoft 365 apps package which includes Copilot functionality.
 Requires macOS 14.0+ (Sonoma) and a Microsoft 365 subscription for full functionality.</string>
 	<key>Identifier</key>
-	<string>local.download.Microsoft365Copilot</string>
+	<string>com.github.jonmathias.download.Microsoft365Copilot</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>

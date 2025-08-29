@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Identifier</key>
+	<string>com.github.jonmathias.intune.Microsoft365Copilot</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Microsoft 365 Copilot</string>
+		<key>categories</key>
+		<array>
+			<string>Productivity</string>
+			<string>AI</string>
+			<string>Microsoft 365</string>
+		</array>
+		<key>description</key>
+		<string>Microsoft 365 Copilot is your AI-first productivity app for work and home. It provides one place for you to chat with your AI assistant, create and edit content, quickly find files, and access your favorite Microsoft 365 apps—helping you get more done, without doing more. This is a native macOS application that integrates with Microsoft 365 services.</string>
+		<key>developer</key>
+		<string>Microsoft Corporation</string>
+		<key>display_name</key>
+		<string>Microsoft 365 Copilot</string>
+		<key>lob_app</key>
+		<true/>
+		<key>web_app</key>
+		<false/>
+		<key>assignment_info</key>
+		<array>
+			<dict>
+				<key>group_id</key>
+				<string>bd717a3a-214f-4e97-8542-32ad9be9b5c6</string>
+				<key>intent</key>
+				<string>Required</string>
+			</dict>
+		</array>
+		<key>install_experience</key>
+		<string>system</string>
+		<key>minimum_os</key>
+		<string>14.0</string>
+		<key>minimum_free_space</key>
+		<string>500</string>
+		<key>install_notes</key>
+		<string>Microsoft 365 Copilot is a native macOS application that requires macOS Sonoma 14.0 or later. The app provides AI-powered productivity features and integrates with Microsoft 365 applications. A Microsoft 365 subscription is required for full functionality.</string>
+		<key>app_requirements</key>
+		<array>
+			<string>macOS 14.0+ (Sonoma)</string>
+			<string>Microsoft 365 subscription</string>
+			<string>Internet connection for AI features</string>
+			<string>500MB available disk space</string>
+		</array>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>com.github.jonmathias.download.Microsoft365Copilot</string>
+	<key>ParentRecipeTrustInfo</key>
+	<dict>
+		<key>non_core_processors</key>
+		<dict>
+			<key>com.github.almenscorner.intune-upload.processors/IntuneAppIconGetter</key>
+			<dict>
+				<key>git_hash</key>
+				<string>latest</string>
+				<key>path</key>
+				<string>/Library/AutoPkg/autopkglib/com.github.almenscorner.intune-upload.processors/IntuneAppIconGetter.py</string>
+				<key>sha256_hash</key>
+				<string>auto</string>
+			</dict>
+			<key>com.github.almenscorner.intune-upload.processors/IntuneAppUploader</key>
+			<dict>
+				<key>git_hash</key>
+				<string>latest</string>
+				<key>path</key>
+				<string>/Library/AutoPkg/autopkglib/com.github.almenscorner.intune-upload.processors/IntuneAppUploader.py</string>
+				<key>sha256_hash</key>
+				<string>auto</string>
+			</dict>
+			<key>com.github.almenscorner.intune-upload.processors/IntuneAppCleaner</key>
+			<dict>
+				<key>git_hash</key>
+				<string>latest</string>
+				<key>path</key>
+				<string>/Library/AutoPkg/autopkglib/com.github.almenscorner.intune-upload.processors/IntuneAppCleaner.py</string>
+				<key>sha256_hash</key>
+				<string>auto</string>
+			</dict>
+			<key>com.github.almenscorner.intune-upload.processors/IntuneAppPromoter</key>
+			<dict>
+				<key>git_hash</key>
+				<string>latest</string>
+				<key>path</key>
+				<string>/Library/AutoPkg/autopkglib/com.github.almenscorner.intune-upload.processors/IntuneAppPromoter.py</string>
+				<key>sha256_hash</key>
+				<string>auto</string>
+			</dict>
+		</dict>
+		<key>parent_recipes</key>
+		<dict>
+			<key>com.github.jonmathias.download.Microsoft365Copilot</key>
+			<dict>
+				<key>git_hash</key>
+				<string>latest</string>
+				<key>path</key>
+				<string>~/Library/AutoPkg/RecipeRepos/com.github.jonmathias-tandberg.jonmathias-recipes/Recipes/Microsoft365Copilot/Microsoft365Copilot.download.recipe</string>
+				<key>sha256_hash</key>
+				<string>auto</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
