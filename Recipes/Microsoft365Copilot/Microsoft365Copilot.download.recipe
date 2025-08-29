@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest stable version of Microsoft 365 Copilot for macOS.
-This recipe automatically detects the latest version and downloads the appropriate package.
+	<string>Downloads the latest version of Microsoft 365 Copilot for macOS.
+This recipe downloads the Microsoft 365 apps package which includes Copilot functionality.
 Requires macOS 14.0+ (Sonoma) and a Microsoft 365 subscription for full functionality.</string>
 	<key>Identifier</key>
 	<string>local.download.Microsoft365Copilot</string>
@@ -12,38 +12,27 @@ Requires macOS 14.0+ (Sonoma) and a Microsoft 365 subscription for full function
 	<dict>
 		<key>NAME</key>
 		<string>Microsoft365Copilot</string>
-		<key>ARCH</key>
-		<string>arm64</string>
-		<key>PRERELEASE</key>
-		<string></string>
+		<key>VERSION</key>
+		<string>1.0.0</string>
+		<key>DOWNLOAD_URL</key>
+		<string>https://go.microsoft.com/fwlink/?linkid=2246798</string>
+		<key>INFO_URL</key>
+		<string>https://www.microsoft.com/en-us/microsoft-365-copilot/download-copilot-app</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>asset_regex</key>
-				<string>Microsoft365Copilot.*%ARCH%.*\.pkg</string>
-				<key>github_repo</key>
-				<string>microsoft/microsoft-365-copilot</string>
-				<key>include_prereleases</key>
-				<string>%PRERELEASE%</string>
-				<key>sort_by_highest_tag_names</key>
-				<string>True</string>
-			</dict>
 			<key>Processor</key>
-			<string>GitHubReleasesInfoProvider</string>
-		</dict>
-		<dict>
+			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
 				<key>filename</key>
 				<string>%NAME%.pkg</string>
 			</dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
@@ -68,19 +57,19 @@ Requires macOS 14.0+ (Sonoma) and a Microsoft 365 subscription for full function
 				<key>pkg_request</key>
 				<dict>
 					<key>pkgname</key>
-					<string>%NAME%-%version%</string>
+					<string>%NAME%-%VERSION%</string>
 					<key>pkg_request</key>
 					<dict>
 						<key>pkgdir</key>
 						<string>%RECIPE_CACHE_DIR%</string>
 						<key>pkgname</key>
-						<string>%NAME%-%version%</string>
+						<string>%NAME%-%VERSION%</string>
 						<key>pkgroot</key>
 						<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 						<key>pkgtype</key>
 						<string>pkg</string>
 						<key>version</key>
-						<string>%version%</string>
+						<string>%VERSION%</string>
 					</dict>
 				</dict>
 			</dict>
