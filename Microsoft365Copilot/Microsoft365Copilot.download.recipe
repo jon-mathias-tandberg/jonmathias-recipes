@@ -7,15 +7,17 @@
 This recipe downloads the Microsoft 365 apps package which includes Copilot functionality.
 Requires macOS 14.0+ (Sonoma) and a Microsoft 365 subscription for full functionality.</string>
 	<key>Identifier</key>
-	<string>com.github.jonmathias.download.Microsoft365Copilot</string>
+	<string>com.github.jonmathias.download.MicrosoftCopilot</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Microsoft365Copilot</string>
-		<key>VERSION</key>
-		<string>1.0.0</string>
+		<string>Microsoft Copilot</string>
+		<key>VENDOR</key>
+		<string>Microsoft</string>
+		<key>SOFTWARETITLE</key>
+		<string>Microsoft 365 Copilot</string>
 		<key>DOWNLOAD_URL</key>
-		<string>https://go.microsoft.com/fwlink/?linkid=2246798</string>
+		<string>https://go.microsoft.com/fwlink/?linkid=2325438</string>
 		<key>INFO_URL</key>
 		<string>https://www.microsoft.com/en-us/microsoft-365-copilot/download-copilot-app</string>
 	</dict>
@@ -24,30 +26,34 @@ Requires macOS 14.0+ (Sonoma) and a Microsoft 365 subscription for full function
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
 				<string>%DOWNLOAD_URL%</string>
 				<key>filename</key>
-				<string>%NAME%.pkg</string>
+				<string>%VENDOR%-%SOFTWARETITLE%.pkg</string>
 			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
 		<dict>
+            <key>Arguments</key>
+            <dict>
+               <key>expected_authority_names</key>
+               <array>
+                  <string>Developer ID Installer: Microsoft Corporation (UBF8T346G9)</string>
+                  <string>Developer ID Certification Authority</string>
+                  <string>Apple Root CA</string>
+               </array>
+               <key>input_path</key>
+               <string>%pathname%</string>
+            </dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
-			<key>Arguments</key>
-			<dict>
-				<key>input_path</key>
-				<string>%pathname%</string>
-				<key>requirement</key>
-				<string>anchor apple generic and identifier "com.microsoft.office365" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "UBF8T346G9")</string>
-			</dict>
 		</dict>
 	</array>
 </dict>
