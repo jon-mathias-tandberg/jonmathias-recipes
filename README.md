@@ -7,13 +7,13 @@ AutoPkg recipes maintained by Jon Mathias Tandberg.
 Add this repository to AutoPkg:
 
 ```
-autopkg repo-add https://github.com/jonmathias-tandberg/jonmathias-recipes.git
+autopkg repo-add https://github.com/jon-mathias-tandberg/jonmathias-recipes.git
 ```
 
 List recipes:
 
 ```
-autopkg list-recipes | grep jonmathias
+autopkg list-recipes | grep jon-mathias
 ```
 
 ## Structure
