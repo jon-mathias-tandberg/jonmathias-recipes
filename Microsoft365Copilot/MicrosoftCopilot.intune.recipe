@@ -41,6 +41,8 @@
 			<dict>
 				<key>pattern</key>
 				<string>%RECIPE_CACHE_DIR%/unpack/**/*.pkg</string>
+				<key>result_output_var_name</key>
+				<string>found_inner_pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>FileFinder</string>
@@ -49,7 +51,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_payload_path</key>
-				<string>%found_path%</string>
+				<string>%found_inner_pkg%</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack/payload</string>
 			</dict>
@@ -61,6 +63,8 @@
 			<dict>
 				<key>pattern</key>
 				<string>%RECIPE_CACHE_DIR%/unpack/payload/**/*.app</string>
+				<key>result_output_var_name</key>
+				<string>found_app</string>
 			</dict>
 			<key>Processor</key>
 			<string>FileFinder</string>
@@ -71,7 +75,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_plist_path</key>
-				<string>%found_path%/Contents/Info.plist</string>
+				<string>%found_app%/Contents/Info.plist</string>
 				<key>plist_version_key</key>
 				<string>CFBundleShortVersionString</string>
 			</dict>
@@ -80,7 +84,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>info_path</key>
-				<string>%found_path%/Contents/Info.plist</string>
+				<string>%found_app%/Contents/Info.plist</string>
 				<key>plist_keys</key>
 				<dict>
 					<key>CFBundleIdentifier</key>
@@ -89,6 +93,17 @@
 			</dict>
 			<key>Processor</key>
 			<string>PlistReader</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%found_app%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/Microsoft 365 Copilot.app</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
 		</dict>
 	</array>
 </dict>
