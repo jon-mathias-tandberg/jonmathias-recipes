@@ -48,13 +48,13 @@
 		<dict>
 			<key>Arguments</key>
 			<dict>
-				<key>flat_pkg_path</key>
-				<string>%found_filename%</string>
+				<key>pkg_payload_path</key>
+				<string>%found_filename%/Payload</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack/payload</string>
 			</dict>
 			<key>Processor</key>
-			<string>FlatPkgUnpacker</string>
+			<string>PkgPayloadUnpacker</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
