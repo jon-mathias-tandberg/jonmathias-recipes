@@ -97,8 +97,6 @@
 				<string>%found_filename%</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/Microsoft 365 Copilot.app</string>
-				<key>output_var_name</key>
-				<string>app_file</string>
 			</dict>
 			<key>Processor</key>
 			<string>Copier</string>
